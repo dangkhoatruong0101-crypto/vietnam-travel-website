@@ -1,0 +1,648 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Việt Nam Travel - Khám Phá Vẻ Đẹp Bất Tận</title>
+    <style>
+        /* Reset CSS cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Thanh menu điều hướng (Navbar) */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0ea5e9;
+            text-decoration: none;
+        }
+
+        .navbar .logo span {
+            color: #f59e0b;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover, .navbar ul li a.active {
+            color: #0ea5e9;
+        }
+
+        /* Khối Banner chính (Hero Section) */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #f59e0b;
+            color: #ffffff;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: #d97706;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Khu vực chung cho các Section */
+        .sections-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1e293b;
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #0ea5e9;
+            border-radius: 2px;
+        }
+
+        /* Lưới hiển thị các địa điểm dạng Grid */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Thẻ địa điểm (Card) */
+        .tour-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tour-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tour-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .tour-card:hover .tour-img img {
+            transform: scale(1.1);
+        }
+
+        .tour-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #0ea5e9;
+            color: #ffffff;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        .tour-content {
+            padding: 25px;
+        }
+
+        .tour-content h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .tour-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
+        .tour-price {
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .btn-secondary {
+            text-decoration: none;
+            color: #0ea5e9;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            color: #0369a1;
+        }
+
+        /* --- Bổ sung: Khối Liên hệ (Contact Section) --- */
+        .contact-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info, .contact-form-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .contact-details li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #475569;
+        }
+
+        .contact-details strong {
+            color: #1e293b;
+        }
+
+        /* Bản đồ nhúng iframe */
+        .contact-map iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+            border-radius: 8px;
+        }
+
+        /* Form nhập liệu liên hệ */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Việt Nam Travel - Khám Phá Vẻ Đẹp Bất Tận</title>
+    <!-- Nhúng file CSS ngoài tại đây -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar">
+        <a href="#" class="logo">VN<span>Travel</span></a>
+        <ul>
+            <li><a href="#" class="active">Trang chủ</a></li>
+            <li><a href="#explore">Điểm đến</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner chính -->
+    <header class="hero">
+        <h1>Khám Phá Việt Nam Bất Tận</h1>
+        <p>Hành trình tìm về với thiên nhiên hùng vĩ, những bãi biển hoang sơ và nền văn hóa đậm đà bản sắc dân tộc.</p>
+        <a href="#explore" class="btn-primary">Bắt đầu hành trình</a>
+    </header>
+
+    <!-- Danh sách điểm đến -->
+    <main class="sections-container" id="explore">
+        <div class="section-title">
+            <h2>Điểm Đến Yêu Thích</h2>
+        </div>
+
+        <div class="tour-grid">
+            <!-- Thẻ Địa điểm 1 -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Di sản thế giới</span>
+                    <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2023/3/9/1155741/Noimage4.jpg" alt="Vịnh Hạ Long">
+                </div>
+                <div class="tour-content">
+                    <h3>Vịnh Hạ Long - Quảng Ninh</h3>
+                    <p>Chiêm ngưỡng hàng nghìn hòn đảo đá vôi kỳ vĩ mọc lên từ làn nước xanh ngọc bích, một trong những kỳ quan thiên nhiên thế giới.</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 1.990.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ Địa điểm 2 (Đã sửa lỗi thẻ img ở đây) -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Văn hóa</span>
+                    <img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/pho_co_hoi_an_69ea262efc.jpg" alt="Hội An">
+                </div>
+                <div class="tour-content">
+                    <h3>Phố Cổ Hội An - Quảng Nam</h3>
+                    <p>Thả mình vào không gian hoài cổ với những dãy nhà vàng rực rỡ, những chiếc đèn lồng huyền ảo lung linh soi bóng bên sông Hoài.</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 1.250.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ Địa điểm 3 -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Sinh thái</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIamVqptRfERCkv8K8YE2QvxdQUX3ONIcXVg1l2H-cFg&s=10" alt="Tràng An">
+                </div>
+                <div class="tour-content">
+                    <h3>Quần Thể Tràng An - Ninh Bình</h3>
+                    <p>Chèo thuyền xuyên qua các hang động xuyên thủy huyền bí và ngắm nhìn non nước hữu tình được mệnh danh là "Hạ Long trên cạn".</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 850.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Khối Liên hệ -->
+    <section class="sections-container" id="contact">
+        <div class="section-title">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+        </div>
+
+        <div class="contact-box">
+            <!-- Bên trái: Thông tin địa chỉ + Bản đồ -->
+            <div class="contact-info">
+                <h3>Công Ty Du Lịch Việt Nam Travel</h3>
+                <ul class="contact-details">
+                    <li><strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</li>
+                    <li><strong>Hotline hỗ trợ:</strong> 1900 xxxx (08:00 - 22:00)</li>
+                    <li><strong>Điện thoại:</strong> +84 (028) 3456 7890</li>
+                    <li><strong>Email:</strong> contact@vntravel.com.vn</li>
+                </ul>
+                
+                <!-- Bản đồ vệ tinh minh họa (Nhúng qua Iframe Google Maps) -->
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.46023242095!2d106.69341147570321!3d10.776019459200378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f385570472f%3A0x178efdcf875faae9!2zQ2jhu6MgQuG6v24gVGjDoG5o!5e0!3m2!1svi!2svn!4v1710000000000!5m2!1svi!2svn" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Bên phải: Form gửi tin nhắn nhanh -->
+            <div class="contact-form-wrapper">
+                <form action="#" method="POST" onsubmit="alert('Cảm ơn bạn đã gửi liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" id="name" class="form-control" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Địa chỉ Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="0901234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Lời nhắn / Yêu cầu tư vấn</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Tôi muốn tư vấn tour Hạ Long..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Gửi thông tin liên hệ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chân trang -->
+    <footer>
+        <p>© 2026 Việt Nam Travel. Tất cả các quyền được bảo lưu.</p>
+        <p style="font-size: 0.85rem; color: #64748b;">Hình ảnh được sử dụng minh họa từ Unsplash & Bản đồ từ Google Maps</p>
+    </footer>
+
+</body>
+</html>cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0284c7;
+        }
+
+        /* Chân trang (Footer) */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Giao diện Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 4%;
+            }
+            .navbar ul {
+                display: none; /* Ẩn menu trên mobile */
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .contact-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh điều hướng -->
+    <nav class="navbar">
+        <a href="#" class="logo">VN<span>Travel</span></a>
+        <ul>
+            <li><a href="#" class="active">Trang chủ</a></li>
+            <li><a href="#explore">Điểm đến</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner chính -->
+    <header class="hero">
+        <h1>Khám Phá Việt Nam Bất Tận</h1>
+        <p>Hành trình tìm về với thiên nhiên hùng vĩ, những bãi biển hoang sơ và nền văn hóa đậm đà bản sắc dân tộc.</p>
+        <a href="#explore" class="btn-primary">Bắt đầu hành trình</a>
+    </header>
+
+    <!-- Danh sách điểm đến -->
+    <main class="sections-container" id="explore">
+        <div class="section-title">
+            <h2>Điểm Đến Yêu Thích</h2>
+        </div>
+
+        <div class="tour-grid">
+            <!-- Thẻ Địa điểm 1 -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Di sản thế giới</span>
+                    <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2023/3/9/1155741/Noimage4.jpg" alt="Vịnh Hạ Long">
+                </div>
+                <div class="tour-content">
+                    <h3>Vịnh Hạ Long - Quảng Ninh</h3>
+                    <p>Chiêm ngưỡng hàng nghìn hòn đảo đá vôi kỳ vĩ mọc lên từ làn nước xanh ngọc bích, một trong những kỳ quan thiên nhiên thế giới.</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 1.990.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ Địa điểm 2 -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Văn hóa</span>
+                    <img src="https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/pho_co_hoi_an_69ea262efc.jpg"Hội An">
+                </div>
+                <div class="tour-content">
+                    <h3>Phố Cổ Hội An - Quảng Nam</h3>
+                    <p>Thả mình vào không gian hoài cổ với những dãy nhà vàng rực rỡ, những chiếc đèn lồng huyền ảo lung linh soi bóng bên sông Hoài.</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 1.250.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ Địa điểm 3 -->
+            <div class="tour-card">
+                <div class="tour-img">
+                    <span class="tour-tag">Sinh thái</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIamVqptRfERCkv8K8YE2QvxdQUX3ONIcXVg1l2H-cFg&s=10" alt="Tràng An">
+                </div>
+                <div class="tour-content">
+                    <h3>Quần Thể Tràng An - Ninh Bình</h3>
+                    <p>Chèo thuyền xuyên qua các hang động xuyên thủy huyền bí và ngắm nhìn non nước hữu tình được mệnh danh là "Hạ Long trên cạn".</p>
+                    <div class="tour-footer">
+                        <span class="tour-price">Từ 850.000đ</span>
+                        <a href="#" class="btn-secondary">Chi tiết →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Khối Liên hệ (Mới thêm) -->
+    <section class="sections-container" id="contact">
+        <div class="section-title">
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+        </div>
+
+        <div class="contact-box">
+            <!-- Bên trái: Thông tin địa chỉ + Bản đồ -->
+            <div class="contact-info">
+                <h3>Công Ty Du Lịch Việt Nam Travel</h3>
+                <ul class="contact-details">
+                    <li><strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</li>
+                    <li><strong>Hotline hỗ trợ:</strong> 1900 xxxx (08:00 - 22:00)</li>
+                    <li><strong>Điện thoại:</strong> +84 (028) 3456 7890</li>
+                    <li><strong>Email:</strong> contact@vntravel.com.vn</li>
+                </ul>
+                
+                <!-- Bản đồ vệ tinh minh họa (Nhúng qua Iframe Google Maps) -->
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.46023242095!2d106.69341147570321!3d10.776019459200378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f385570472f%3A0x178efdcf875faae9!2zQ2jhu6MgQuG6v24gVGjDoG5o!5e0!3m2!1svi!2svn!4v1710000000000!5m2!1svi!2svn" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Bên phải: Form gửi tin nhắn nhanh -->
+            <div class="contact-form-wrapper">
+                <form action="#" method="POST" onsubmit="alert('Cảm ơn bạn đã gửi liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" id="name" class="form-control" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Địa chỉ Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="0901234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Lời nhắn / Yêu cầu tư vấn</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Tôi muốn tư vấn tour Hạ Long..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Gửi thông tin liên hệ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chân trang -->
+    <footer>
+        <p>© 2026 Việt Nam Travel. Tất cả các quyền được bảo lưu.</p>
+        <p style="font-size: 0.85rem; color: #64748b;">Hình ảnh được sử dụng minh họa từ Unsplash & Bản đồ từ Google Maps</p>
+    </footer>
+
+</body>
+</html></pre>
+        </body>
+    </html>
